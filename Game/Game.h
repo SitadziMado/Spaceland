@@ -16,6 +16,8 @@ namespace Core
         void pause();
         void stop();
 
+        bool isAlive() const noexcept;
+
     private:
         static constexpr Int FramesPerSecond = 60;
         static constexpr Float FrameSeconds = 1. / FramesPerSecond;
@@ -28,7 +30,7 @@ namespace Core
         std::thread gameLogicThread_;
         // std::thread renderThread_;
 
-        std::mutex worldMutex_;
+        // std::mutex worldMutex_;
         World world_;
     };
 }

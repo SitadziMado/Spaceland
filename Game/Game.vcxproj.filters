@@ -12,6 +12,9 @@
     <Filter Include="Исходные файлы\Core">
       <UniqueIdentifier>{37477aa9-9dc1-4c64-95ef-444c2517fd5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Core\Models">
+      <UniqueIdentifier>{f9c9c506-d4c2-405e-bd2e-cdd02f56696c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h">
@@ -41,6 +44,21 @@
     <ClInclude Include="Game.h">
       <Filter>Исходные файлы\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Force.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceManager.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="IMotionModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="NewtonMotionModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ICollisionModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -69,6 +87,21 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Force.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceManager.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="IMotionModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="NewtonMotionModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ICollisionModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

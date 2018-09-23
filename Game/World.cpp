@@ -6,11 +6,11 @@
 
 namespace Core
 {
-    void World::onTick(Float msElapsed)
+    void World::onTick(Float elapsed)
     {
         for (auto&& entity : entities_)
         {
-            entity->onTick(msElapsed);
+            entity->onTick(elapsed);
         }
     }
 

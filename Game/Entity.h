@@ -7,13 +7,21 @@
 
 namespace Core
 {
+    class IMotionModel;
+
     class Entity : public ITickable
     {
     public:
-        Entity(const String& name, const Vector3& position);
+        Entity(
+            const String& name, 
+            const Ptr<IMotionModel>& motionModel
+        );
+
+        const Vector3& getPosition() const;
+        void setPosition(const Vector3& value);
 
     protected:
         String name_;
-        Vector3 position_;
+        Ptr<IMotionModel> motionModel_;
     };
 }

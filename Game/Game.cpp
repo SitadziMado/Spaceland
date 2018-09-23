@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "Game.h"
+#include <iostream>
 
 namespace Core
 {
@@ -13,38 +14,47 @@ namespace Core
         using namespace std::chrono_literals;
         using namespace std::this_thread;
 
-        gameLogicThread_ = std::thread([this]() {
-            const auto delta = milliseconds(static_cast<Int>(FrameMilliseconds * 1000.));
-            auto previousTimePoint = high_resolution_clock::now();
-            auto nextTimePoint = high_resolution_clock::now() + delta;
+        auto now = []() {
+            return high_resolution_clock::now();
+        };
+
+        live_ = true;
+        running_ = true;
+
+        gameLogicThread_ = std::thread([this, &now]() {
+            const auto delta = milliseconds(static_cast<Int>(FrameMilliseconds));
+            auto previousTimePoint = now();
+            auto currentTimePoint = previousTimePoint;
 
             while (live_)
             {
                 if (running_)
                 {
-                    auto currentTimePoint = high_resolution_clock::now();
+                    currentTimePoint = now();
 
-                    if (currentTimePoint > nextTimePoint)
+                    if (currentTimePoint > previousTimePoint + delta)
                     {
                         const auto elapsed = 
                             duration_cast<nanoseconds>(currentTimePoint - previousTimePoint).count() /
-                            1000000.;
+                            1'000'000.;
 
                         previousTimePoint = currentTimePoint;
 
-                        std::lock_guard<std::mutex> worldLockGuard(worldMutex_);
+                        // std::lock_guard<std::mutex> worldLockGuard(worldMutex_);
+                        // ToDo: обязательно сделать потокобезопасным.
                         onTick(elapsed);
-
-                        nextTimePoint += delta;
                     }
                     else
                     {
                         // ToDo: возможно, стоит поправить...
-                        sleep_until(nextTimePoint);
+                        // sleep_for(1ms);
+                        sleep_until(previousTimePoint + delta / 4);
                     }
                 }
                 else
                 {
+                    // ToDo: сделать точнее.
+                    previousTimePoint = now();
                     sleep_for(100ms);
                 }
             }
@@ -53,16 +63,24 @@ namespace Core
 
     void Game::pause()
     {
-        running_ = false;
+        running_ = !running_;
     }
 
     void Game::stop()
     {
         live_ = false;
+        gameLogicThread_.join();
+    }
+
+    bool Game::isAlive() const noexcept
+    {
+        return live_;
     }
 
     void Game::onTick(Float msElapsed)
     {
-        world_.onTick(msElapsed);
+        world_.onTick(msElapsed * .001);
+
+        std::cout << msElapsed << std::endl;
     }
 }

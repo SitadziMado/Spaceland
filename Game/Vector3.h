@@ -14,16 +14,16 @@ namespace Core
 
         static constexpr Vector3 zero();
         static constexpr Vector3 one();
-        static constexpr Vector3 normalize(const Vector3& value);
+        static Vector3 normalize(const Vector3& value);
 
         constexpr Vector3& operator+=(const Vector3& rhs);
         constexpr Vector3& operator-=(const Vector3& rhs);
         constexpr Vector3& operator*=(Float rhs);
         constexpr Vector3& operator/=(Float rhs);
 
-        constexpr Float length() const;
+        Float length() const;
         constexpr Float lengthSq() const;
-        constexpr Vector3& normalize();
+        Vector3& normalize();
 
         constexpr Float getX() const;
         constexpr Float getY() const;
@@ -46,11 +46,6 @@ namespace Core
     constexpr Vector3 Vector3::one()
     {
         return { 1., 1., 1. };
-    }
-
-    constexpr Vector3 Vector3::normalize(const Vector3& value)
-    {
-        return Vector3(value).normalize();
     }
 
     constexpr Vector3& Vector3::operator+=(const Vector3& rhs)
@@ -82,32 +77,22 @@ namespace Core
         return *this *= (1. / rhs);
     }
 
-    constexpr Vector3::Float Vector3::length() const
-    {
-        return std::sqrt(lengthSq());
-    }
-
-    constexpr Vector3::Float Vector3::lengthSq() const
+    constexpr Float Vector3::lengthSq() const
     {
         return x_ * x_ + y_ * y_;
     }
 
-    constexpr Vector3& Vector3::normalize()
-    {
-        return *this /= length();
-    }
-
-    constexpr Vector3::Float Vector3::getX() const
+    constexpr Float Vector3::getX() const
     {
         return x_;
     }
 
-    constexpr Vector3::Float Vector3::getY() const
+    constexpr Float Vector3::getY() const
     {
         return y_;
     }
 
-    constexpr Vector3::Float Vector3::getZ() const
+    constexpr Float Vector3::getZ() const
     {
         return z_;
     }
@@ -140,22 +125,22 @@ namespace Core
         return Vector3(lhs) -= rhs;
     }
 
-    constexpr Vector3 operator*(const Vector3& lhs, Vector3::Float rhs)
+    constexpr Vector3 operator*(const Vector3& lhs, Float rhs)
     {
         return Vector3(lhs) *= rhs;
     }
 
-    constexpr Vector3 operator*(Vector3::Float lhs, const Vector3& rhs)
+    constexpr Vector3 operator*(Float lhs, const Vector3& rhs)
     {
         return Vector3(rhs) *= lhs;
     }
 
-    constexpr Vector3 operator/(const Vector3& lhs, Vector3::Float rhs)
+    constexpr Vector3 operator/(const Vector3& lhs, Float rhs)
     {
         return Vector3(lhs) /= rhs;
     }
 
-    constexpr Vector3::Float operator*(const Vector3& lhs, const Vector3& rhs)
+    constexpr Float operator*(const Vector3& lhs, const Vector3& rhs)
     {
         return lhs.getX() * rhs.getX() + 
             lhs.getY() * rhs.getY() + 

@@ -9,6 +9,6 @@ namespace Core
     public:
         virtual ~ITickable() = default;
 
-        virtual void onTick(Float msElapsed) = 0;
+        virtual void onTick(Float elapsed) = 0;
     };
 }
