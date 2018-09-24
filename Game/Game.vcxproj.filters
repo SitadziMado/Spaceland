@@ -59,6 +59,15 @@
     <ClInclude Include="ICollisionModel.h">
       <Filter>Исходные файлы\Core\Models</Filter>
     </ClInclude>
+    <ClInclude Include="IIntegrityModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageBase.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="AabbCollisionModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -101,6 +110,15 @@
       <Filter>Исходные файлы\Core\Models</Filter>
     </ClCompile>
     <ClCompile Include="ICollisionModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="IIntegrityModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageBase.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="AabbCollisionModel.cpp">
       <Filter>Исходные файлы\Core\Models</Filter>
     </ClCompile>
   </ItemGroup>

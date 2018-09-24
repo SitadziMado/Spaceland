@@ -1,6 +1,7 @@
 ﻿#pragma once
 
-#include <cmath>
+#include <tuple>
+
 #include "Utility.h"
 
 namespace Core
@@ -24,6 +25,7 @@ namespace Core
         Float length() const;
         constexpr Float lengthSq() const;
         Vector3& normalize();
+        constexpr std::tuple<Float, Float, Float> asTuple() const;
 
         constexpr Float getX() const;
         constexpr Float getY() const;
@@ -80,6 +82,11 @@ namespace Core
     constexpr Float Vector3::lengthSq() const
     {
         return x_ * x_ + y_ * y_;
+    }
+
+    constexpr std::tuple<Float, Float, Float> Vector3::asTuple() const
+    {
+        return { x_, y_, z_ };
     }
 
     constexpr Float Vector3::getX() const
