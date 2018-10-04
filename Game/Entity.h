@@ -4,6 +4,7 @@
 
 #include "ITickable.h"
 #include "Vector3.h"
+#include "ICollisionModel.h"
 
 namespace Core
 {
@@ -14,8 +15,11 @@ namespace Core
     public:
         Entity(
             const String& name, 
-            const Ptr<IMotionModel>& motionModel
+            const Ptr<IMotionModel>& motionModel,
+            const Ptr<ICollisionModel>& collisionModel
         );
+
+        void collide(const Entity& rhs);
 
         const Vector3& getPosition() const;
         void setPosition(const Vector3& value);
@@ -23,5 +27,6 @@ namespace Core
     protected:
         String name_;
         Ptr<IMotionModel> motionModel_;
+        Ptr<ICollisionModel> collisionModel_;
     };
 }

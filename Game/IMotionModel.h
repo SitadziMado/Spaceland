@@ -8,7 +8,7 @@ namespace Core
     class Force;
     class Vector3;
 
-    class IMotionModel : ITickable
+    class IMotionModel : public ITickable
     {
     public:
         virtual ~IMotionModel() = default;

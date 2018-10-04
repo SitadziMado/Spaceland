@@ -10,6 +10,10 @@ namespace Core
     class Game
     {
     public:
+        static constexpr Int FramesPerSecond = 60;
+        static constexpr Float FrameSeconds = 1. / FramesPerSecond;
+        static constexpr Float FrameMilliseconds = 1000. / FramesPerSecond;
+
         Game();
 
         void start();
@@ -19,10 +23,6 @@ namespace Core
         bool isAlive() const noexcept;
 
     private:
-        static constexpr Int FramesPerSecond = 60;
-        static constexpr Float FrameSeconds = 1. / FramesPerSecond;
-        static constexpr Float FrameMilliseconds = 1000. / FramesPerSecond;
-
         void onTick(Float msElapsed);
 
         bool live_;

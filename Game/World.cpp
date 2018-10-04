@@ -8,6 +8,14 @@ namespace Core
 {
     void World::onTick(Float elapsed)
     {
+        for (size_t i = 0; i < entities_.size(); ++i)
+        {
+            for (size_t j = i + 1; j < entities_.size(); ++j)
+            {
+                entities_[i]->collide(entities_[j]);
+            }
+        }
+
         for (auto&& entity : entities_)
         {
             entity->onTick(elapsed);

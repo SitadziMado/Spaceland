@@ -10,6 +10,8 @@ namespace Core
     {
     public:
         constexpr Vector3() : x_(0.), y_(0.), z_(0.) {}
+        constexpr Vector3(Float x, Float y)
+            : x_(x), y_(y), z_(0.) {}
         constexpr Vector3(Float x, Float y, Float z) 
             : x_(x), y_(y), z_(z) {}
 
