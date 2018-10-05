@@ -30,4 +30,14 @@ namespace Core
     {
         motionModel_->setPosition(value);
     }
+
+    const Vector3& Entity::getAcceleration() const
+    {
+        return motionModel_->getAcceleration();
+    }
+
+    void Entity::setAcceleration(const Vector3& value)
+    {
+        motionModel_->setAcceleration(value);
+    }
 }

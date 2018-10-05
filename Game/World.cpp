@@ -1,8 +1,10 @@
 ﻿#include "stdafx.h"
 #include "World.h"
 
-#include "NotImplementedException.h"
+#include "EntityNotFoundException.h"
 #include "Mobile.h"
+#include "NotImplementedException.h"
+#include "Human.h"
 
 namespace Core
 {
@@ -12,7 +14,7 @@ namespace Core
         {
             for (size_t j = i + 1; j < entities_.size(); ++j)
             {
-                entities_[i]->collide(entities_[j]);
+                entities_[i]->collide(*entities_[j].get());
             }
         }
 
@@ -24,7 +26,20 @@ namespace Core
 
     void World::createEntity(const String& name)
     {
-        throw NotImplementedException();
+        if (name == "Human")
+        {
+            entities_.push_back(
+                alloc<Human>(
+                    Vector3(0., 0., 0.),
+                    Vector3::one(),
+                    Vector3::zero()
+                )
+            );
+        }
+        else
+        {
+            throw EntityNotFoundException();
+        }
     }
 
     void World::destroyEntity(const Ptr<Entity>& entity)

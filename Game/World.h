@@ -15,6 +15,6 @@ namespace Core
         void destroyEntity(const Ptr<Entity>& entity);
 
     private:
-        std::vector<Ptr<Entity>> entities_{};
+    public: std::vector<Ptr<Entity>> entities_{};
     };
 }

@@ -19,18 +19,19 @@ namespace Core
         void start();
         void pause();
         void stop();
+        void onTick(Float msElapsed);
+
+        void createEntity(const std::string& name);
 
         bool isAlive() const noexcept;
 
     private:
-        void onTick(Float msElapsed);
-
         bool live_;
         bool running_;
         std::thread gameLogicThread_;
         // std::thread renderThread_;
 
         // std::mutex worldMutex_;
-        World world_;
+    public: World world_;
     };
 }

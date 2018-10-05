@@ -1,6 +1,9 @@
 ﻿#include "stdafx.h"
 #include "ForceManager.h"
+
 #include <vector>
+
+#include "Mobile.h"
 
 namespace Core
 {
@@ -16,7 +19,9 @@ namespace Core
 
         for (auto it = forces_.begin(); it != forces_.end(); ++it)
         {
-            it->apply(mobile, elapsed);
+            auto acceleration = mobile.getAcceleration();
+            it->apply(acceleration, elapsed);
+            mobile.setAcceleration(acceleration);
 
             if (it->isExpired())
             {

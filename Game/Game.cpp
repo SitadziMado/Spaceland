@@ -10,7 +10,7 @@ namespace Core
 
     void Game::start()
     {
-        using namespace std::chrono;
+        /* using namespace std::chrono;
         using namespace std::chrono_literals;
         using namespace std::this_thread;
 
@@ -58,7 +58,7 @@ namespace Core
                     sleep_for(100ms);
                 }
             }
-        });
+        }); */
     }
 
     void Game::pause()
@@ -80,7 +80,11 @@ namespace Core
     void Game::onTick(Float msElapsed)
     {
         world_.onTick(msElapsed * .001);
-
         std::cout << msElapsed << std::endl;
+    }
+
+    void Game::createEntity(const std::string& name)
+    {
+        world_.createEntity(name);
     }
 }

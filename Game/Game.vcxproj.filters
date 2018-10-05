@@ -68,6 +68,18 @@
     <ClInclude Include="AabbCollisionModel.h">
       <Filter>Исходные файлы\Core\Models</Filter>
     </ClInclude>
+    <ClInclude Include="IRenderingModel.h">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityNotFoundException.h">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -120,6 +132,18 @@
     </ClCompile>
     <ClCompile Include="AabbCollisionModel.cpp">
       <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderingModel.cpp">
+      <Filter>Исходные файлы\Core\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityNotFoundException.cpp">
+      <Filter>Исходные файлы\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
